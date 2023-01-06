@@ -1,5 +1,5 @@
 import { mutatorAction } from "satcheljs";
-import getStore ,{storeType1} from "../store/store-task.store";
+import getStore  from "../store/store-task.store";
 import {getStoreTask} from '../Selectors/selector-get-Store.selector'
 import { SetLocalStore } from "../../helpers/localStorageAction";
 interface obj {
