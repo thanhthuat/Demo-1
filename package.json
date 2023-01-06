@@ -10,9 +10,17 @@
     "@types/node": "^16.18.11",
     "@types/react": "^18.0.26",
     "@types/react-dom": "^18.0.10",
+    "bootstrap": "^5.2.3",
+    "mobx": "^6.7.0",
+    "mobx-react": "^7.6.0",
     "react": "^18.2.0",
+    "react-beautiful-dnd": "^13.1.1",
+    "react-bootstrap": "^2.7.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
+    "sass": "^1.57.1",
+    "satcheljs": "^4.3.1",
+    "scss": "^0.2.4",
     "typescript": "^4.9.4",
     "web-vitals": "^2.1.4"
   },
@@ -39,5 +47,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/react-beautiful-dnd": "^13.1.3"
   }
 }

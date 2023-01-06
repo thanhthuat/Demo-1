@@ -1,0 +1,35 @@
+.nav-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  padding: 10px 20px;
+  position: relative;
+  background-color: $white-main;
+  border-top-right-radius: 3px;
+  &::after{
+    content: '';
+    width: 100%;
+    height: 5px;
+    background-color: $blue-main;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border-top-right-radius: 3px;
+  }
+  &__logo {
+    .title {
+      color: $blue-main;
+    }
+  }
+  &__list {
+    > ul {
+      display: flex;
+      gap: 0 20px;
+      list-style: none;
+      li{
+        color: $blue-main;
+      }
+    }
+  }
+}

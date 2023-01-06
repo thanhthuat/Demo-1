@@ -1,0 +1,78 @@
+.item {
+  background-color: $gray-main;
+  border-radius: 3px;
+  max-height: 400px;
+  max-width: 500px;
+  width: 100%;
+  height: auto;
+  position: relative;
+  border-left-color: $blue-main;
+  border-left: 5px solid;
+
+  // &::after {
+  //   content: "";
+  //   width: 30px;
+  //   height: 30px;
+  //   border-radius: 50%;
+  //   position: absolute;
+  //   top: -10px;
+  //   left: 85%;
+  //   background-color: $white-main;
+  //   box-shadow: 2px 0px 5px 0px rgba(0, 0, 0, 0.45);
+  //   -webkit-box-shadow: 2px 0px 5px 0px rgba(0, 0, 0, 0.45);
+  //   -moz-box-shadow: 2px 0px 5px 0px rgba(0, 0, 0, 0.45);
+  // }
+  &-container {
+    display: flex;
+    gap: 0px 10px;
+    padding: 10px;
+    max-width: 350px;
+    .item {
+      &__left {
+        display: flex;
+        flex-direction: row;
+        min-width: 30px;
+       
+        .avt-0{
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
+          background-color: rgb(36, 123, 160);
+          cursor: pointer;
+        }
+        .avt-1{
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
+          background-color: rgb(42, 157, 143);
+          cursor: pointer;
+        }
+        .avt-2{
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
+          background-color: rgb(112, 193, 179);
+          cursor: pointer;
+        }
+        .avt-3{
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
+          background-color: rgb(244, 162, 97);
+          cursor: pointer;
+        }
+      }
+
+      &__right {
+        flex-grow: 1;
+      }
+      &__icon{
+        list-style-type: none;
+        gap: 0 5px;
+        >li{
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

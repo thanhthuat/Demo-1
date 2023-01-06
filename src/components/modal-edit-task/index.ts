@@ -1,0 +1,1 @@
+export {default as ModalEditTask} from './modal-edit-task';

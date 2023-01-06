@@ -1,0 +1,1 @@
+export {default as ModalCreateBucket} from './modal-edit-bucket';

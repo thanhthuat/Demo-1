@@ -1,0 +1,48 @@
+.card {
+	min-width: 414px;
+	height: auto;
+	background-color: $white-main;
+	border-radius: 3px;
+
+	&__head {
+		color: $blue-main;
+		display: flex;
+		justify-content: space-between;
+		padding: 10px 22px;
+		> span.card__itemhead {
+			cursor: pointer;
+		}
+	}
+	&__itemhead {
+		font-size: 14px;
+	}
+	&__edit.card__itemhead{
+		border: none;
+		outline: none;
+		text-align: left !important;
+		padding: 0px 10px;
+	}
+	&__buttonsave{
+		border: none;
+		background-color: $blue-main;
+		border-radius: 4px;
+		color: $white-main;
+		padding: 4px 5px;
+		margin-right: 10px;
+	}
+
+	&__itemhead:nth-child(2) {
+		flex-grow: 1;
+		text-align: center;
+	}
+	&__body {
+		padding: 10px 20px;
+		max-height: 90vh;
+		overflow: scroll;
+		height: 90vh;
+		min-width: 286px;
+	}
+	.ml-4{
+		margin-left: 15px;
+	}
+}

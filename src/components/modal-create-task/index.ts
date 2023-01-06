@@ -1,0 +1,1 @@
+export {default as ModalCreate} from './modal-create-task.component';
