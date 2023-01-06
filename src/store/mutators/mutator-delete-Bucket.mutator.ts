@@ -8,11 +8,8 @@ interface obj {
   content:string,
   type: keyof storeType1
 }
-const deleteBucket = mutatorAction("DELETE_BUCKET", function createBucket(name:string) {
-    delete getStore().store[`${name}`]
-    const data = getStoreTask() ;
-    localStorage.setItem('storeTask',JSON.stringify(data)) ;
- 
+const deleteBucket = mutatorAction("DELETE_BUCKET", function createBucket(obj:IlocalStore) {
+     getStore().store =obj ;
 });
 
 export default deleteBucket;

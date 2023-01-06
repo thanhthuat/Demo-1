@@ -7,17 +7,10 @@ interface obj {
   content:string,
  
 }
-const getLocalStore = mutatorAction("GET__LOCALSTORE", function getLocalStore(obj: string) {
+const getLocalStore = mutatorAction("GET__LOCALSTORE", function getLocalStore(obj: IlocalStore) {
   
-  getStore().store = JSON.parse(obj)  ;
-  console.log("🚀 ~ file: mutators-get-LocalStore.mutator.ts:13 ~ getLocalStore ~ JSON.parse(obj)", JSON.parse(obj))
-  // getStore()[`${obj.type}`].push({
-  //   id:`${obj.type}-${randomId}`,
-  //   prefix:obj.type,
-  //   content:obj.content,
-  //   title:obj.title
+  getStore().store = obj ;
 
-  // }) 
  
 });
 

@@ -1,14 +1,10 @@
 import React, {useState} from 'react';
 import {Button, Col, Container, Form, Modal, Row} from 'react-bootstrap';
-import addTask from '../../store/mutators/addTodoAction';
+import addTask from '../../store/mutators/mutator-create-Task.mutator';
 import {storeType1} from '../../store/store/store-task.store';
 import createBucket from '../../store/orchestrators/orchestrator-create-Bucket.orchestrators';
-type Props = {
-	show: boolean;
-	onHide: () => void;
-};
-
-function ModalEditBucket({show, onHide}: Props) {
+import {IpropsModalEditBucket} from './modal-edit-bucket.type';
+function ModalEditBucket({show, onHide}: IpropsModalEditBucket) {
 	const [taskValue, SettaskValue] = useState<{title: string}>({
 		title: '',
 	});
@@ -21,7 +17,7 @@ function ModalEditBucket({show, onHide}: Props) {
 		let obj = {
 			title: taskValue.title,
 		};
-		//	addTask(obj);
+		
 		createBucket(taskValue);
 		setTimeout(() => onHide(), 200);
 	};

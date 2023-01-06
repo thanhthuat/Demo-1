@@ -1,8 +1,9 @@
 import React ,{useState} from 'react';
 import {Draggable} from 'react-beautiful-dnd';
-import deleteTodo from '../../store/mutators/deleteTodoAction';
+import deleteTodo from '../../store/mutators/mutator-delete-Task.mutator';
 import { ModalEditTask } from '../modal-edit-task';
-type Props = {};
+
+const classNamePrefix = 'item';
 
 function Item({item, index, type}: any) {
 	const [modalEditTask, setModalEditTask] = useState<boolean>(false);
@@ -23,17 +24,17 @@ function Item({item, index, type}: any) {
 						{...provided.draggableProps}
 						{...provided.dragHandleProps}
 					>
-						<div className="item-container">
-							<div className="item__left">
+						<div className={`${classNamePrefix}-container`} >
+							<div className={`${classNamePrefix}__left`}>
 								<span className={`avt-${index}`} onClick={() => deleteTodo(index, type)}></span>
 
 								<span></span>
 							</div>
-							<div className="item__right">
-								<div className="item__title d-flex justify-content-between">
+							<div className={`${classNamePrefix}__right`}>
+								<div className={`${classNamePrefix}__title d-flex justify-content-between`}>
 									<h5> {item.title}</h5>
 									<div>
-										<ul className='d-flex item__icon'>
+										<ul className={`${classNamePrefix}__icon d-flex`}>
 											
 											<li>
 												<i className="fa-solid fa-trash"  onClick={() => deleteTodo(index, type)}></i>
@@ -44,10 +45,10 @@ function Item({item, index, type}: any) {
 										</ul>
 									</div>
 								</div>
-								<div className="item__desc">
+								<div className={`${classNamePrefix}__desc`}>
 									<h6> {item.content}</h6>
 								</div>
-								<div className="item__content">
+								<div className={`${classNamePrefix}__content`}>
 									<p> This is my storys about my house my company ,my abition ,this is content</p>
 								</div>
 							</div>

@@ -1,10 +1,11 @@
 import { orchestrator } from "satcheljs";
+import { apiDeleteBucket } from "../../api/api-create-Bucket";
 import deleteBucket from "../actions/action-delete-Bucket";
 import deleteBucketMutator from "../mutators/mutator-delete-Bucket.mutator";
 
 const handleDeleteBucket = orchestrator(deleteBucket, async (actionMessage) => {
-// console.log("🚀 ~ file: orchestrator-create-Bucket.orchestrators.ts:6 ~ createBucket ~ actionMessage", actionMessage)
- return setTimeout(() => deleteBucketMutator(actionMessage.title), 500);
+ const data =   await apiDeleteBucket(actionMessage.title);
+ return setTimeout(() => deleteBucketMutator(data), 100);
 });
 
 export default handleDeleteBucket;

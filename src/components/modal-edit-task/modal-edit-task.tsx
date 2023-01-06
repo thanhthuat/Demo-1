@@ -1,20 +1,13 @@
 import React, {useState} from 'react';
 import {Button, Col, Container, Form, Modal, Row} from 'react-bootstrap';
-import addTask from '../../store/mutators/addTodoAction';
+import addTask from '../../store/mutators/mutator-create-Task.mutator';
 import editTask from '../../store/mutators/mutator-edit-Task.mutator';
 import {storeType1} from '../../store/store/store-task.store';
-type Props = {
-	show: boolean;
-	onHide: () => void;
-	type: string;
-    item : any ;
-    index:number
-};
-
-function ModalEdit({show, onHide, type,item,index}: Props) {
+import {IpropsModalEditTask} from './modal-edit-task.type'
+function ModalEdit({show, onHide, type, item, index}: IpropsModalEditTask) {
 	const [taskValue, SettaskValue] = useState<{title: string; content: string}>({
 		title: item.content,
-		content:item.title,
+		content: item.title,
 	});
 	const handleOnchange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		const {value, name} = event.target;
@@ -23,12 +16,12 @@ function ModalEdit({show, onHide, type,item,index}: Props) {
 	const handleSubmit = (event: React.SyntheticEvent<HTMLFormElement>) => {
 		event.preventDefault();
 		let obj = {
-            id:item.id,
-            prefix:item.prefix,
+			id: item.id,
+			prefix: item.prefix,
 			title: taskValue.title,
 			content: taskValue.content,
 			type: type,
-            index:index
+			index: index,
 		};
 		editTask(obj);
 		setTimeout(() => onHide(), 200);

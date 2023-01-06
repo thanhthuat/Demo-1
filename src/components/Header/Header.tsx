@@ -1,11 +1,10 @@
 import React ,{useState}from 'react';
-import resetInitial from '../../store/mutators/reset';
 import { getStore } from '../../store/store';
 import { ModalCreateBucket} from '../modal-create-bucket';
 
-type Props = {};
 
-function Header({}: Props) {
+const classNamePrefix = 'nav-header';
+function Header() {
 	const [showModalCreate,setShowModalCreate] = useState<boolean>(false) ;
 
 	const handleShowModalCreate =() =>{
@@ -15,13 +14,13 @@ function Header({}: Props) {
 		setShowModalCreate(false);
 	}
 	return (
-		<header className="nav-header ">
-			<div className="nav-header__logo">
+		<header className={`${classNamePrefix}`}>
+			<div className={`${classNamePrefix}__logo`}>
 				<h1 className="title">KANBAIMAIL </h1>
 			</div>
-			<div className="nav-header__list">
+			<div className={`${classNamePrefix}__list`}>
 				<ul>
-					<li onClick={() => resetInitial()}>
+					<li >
 						<i className="fa-solid fa-pen-to-square"></i>{' '}
 					</li>
 					<li>

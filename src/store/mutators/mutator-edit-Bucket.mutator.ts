@@ -16,7 +16,6 @@ const editBucket = mutatorAction("EDIT__BUCKET", function editBucket(obj: obj) {
     localStorage.setItem('storeTask',JSON.stringify(data)) ;
    }
    
-  
   });
 
 
