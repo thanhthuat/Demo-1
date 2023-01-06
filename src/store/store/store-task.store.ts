@@ -1,19 +1,10 @@
 import { createStore } from "satcheljs"; 
 import {Itask,Istore} from './store-task.type';
-// import "../mutators/addTodo";
-
-// type MyType = {
-//     todos: {id:number,text:string}[],
-// }
-// interface task {
-//     [name: number]:{id:number ,content:string}
-// }
-// interface storeType {
-//     tasks: task ,
-//     columns:{[name:string]:{id:string ,title:string,taskIds:number[]}},
-//     columnOrder:string[]
-
-// }
+import '../orchestrators/orchestrator-create-Bucket.orchestrators';
+import '../orchestrators/orchestrator-delete-Bucket.orchestrators';
+import '../orchestrators/orchestrator-get-LocalStore.orchestrators';
+import '../mutators/mutator-create-Bucket.mutator';
+import '../mutators/mutator-delete-Bucket.mutator';
 interface task{
   id:string ,
   prefix:string,

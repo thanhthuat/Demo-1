@@ -7,7 +7,7 @@ interface obj {
   content:string,
   type: string
 }
-const addTask = mutatorAction("ADD_TODO", function addTask(obj: obj) {
+const addTask = mutatorAction("CREATE__TASK", function addTask(obj: obj) {
   const randomId = Math.floor(Math.random() * 1000);
  
   getStore().store[`${obj.type}`].items.push({
@@ -17,7 +17,6 @@ const addTask = mutatorAction("ADD_TODO", function addTask(obj: obj) {
     title:obj.title
   }) 
   const data = getStoreTask() ;
-  console.log("🚀 ~ file: addTodoAction.ts:20 ~ addTask ~ data", typeof data,data)
   localStorage.setItem('storeTask',JSON.stringify(data)) 
   //SetLocalStore(JSON.stringify(data))
 });

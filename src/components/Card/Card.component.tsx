@@ -4,6 +4,7 @@ import {Item} from '../Item';
 import editBucket from '../../store/mutators/mutator-edit-Bucket.mutator';
 import {Iobj, Props} from './Card.type';
 import handleDeleteBucket from '../../store/orchestrators/orchestrator-delete-Bucket.orchestrators';
+import deleteBucket from '../../store/actions/action-delete-Bucket';
 const classNamePrefix = 'card';
 function Card({showMoal, prefix, elements, type}: Props) {
 	const [editNameBucket, setEditNameBucket] = useState<boolean>(false);
@@ -24,7 +25,8 @@ function Card({showMoal, prefix, elements, type}: Props) {
 		setEditNameBucket(false);
 	};
 	const handleDelete = () => {
-		handleDeleteBucket({title: type});
+		deleteBucket( type)
+		//handleDeleteBucket({title: type});
 	};
 	//handleDeleteBucket
 	return (

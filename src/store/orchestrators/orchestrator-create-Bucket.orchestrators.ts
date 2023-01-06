@@ -1,11 +1,13 @@
 import { orchestrator } from "satcheljs";
 import { apiCreateBucket } from "../../api/api-create-Bucket";
-import createBuckets from "../actions/action-create-Buckets";
-import createBucketMutator from "../mutators/mutator-create-Bucket.mutator";
+import createBuckets, { createBucket1 } from "../actions/action-create-Buckets";
+
 
 const createBucket = orchestrator(createBuckets, async (actionMessage) => {
     const data =  await apiCreateBucket(actionMessage.title) ;
-  return setTimeout(() => createBucketMutator(data), 100);
+    createBucket1(data);
+   
+ 
 });
 
 export default createBucket;

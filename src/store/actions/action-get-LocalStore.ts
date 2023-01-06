@@ -1,5 +1,8 @@
+import { IlocalStore } from './../store/store-task.type';
 import { action } from "satcheljs";
 
-let addTodo = action("ADD_TODO", (text: string) => ({ text: text }));
+let getLocalStore = action("ADD_TODO", (text: string) => ({ text: text }));
 
-export default addTodo;
+export const getLocalStoreAction = action("GET__STORE__ACTION", (data: IlocalStore) => ({data:data}));
+
+export default getLocalStore;

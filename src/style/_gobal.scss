@@ -1,16 +1,66 @@
 * {
-  padding: 0px;
-  margin: 0px;
-  box-sizing: border-box;
+	padding: 0px;
+	margin: 0px;
+	box-sizing: border-box;
 }
 body {
-  background: url("../../public/windownbg.jpg") no-repeat;
-  background-size: cover;
+	background: url('../../public/windownbg.jpg') no-repeat;
+	background-size: cover;
 }
 .wapper {
-  max-width: 1920px;
-  padding: 0px 20px;
+	max-width: 1920px;
+	padding: 0px 20px;
 }
 .mt-1 {
-  margin-top: 16px;
+	margin-top: 16px;
+}
+#idAlert {
+	display: block;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	padding: 10px;
+	padding-top: 100px;
+	background: rgba(24, 26, 65, 0.3);
+	z-index: 9999;
+	.cls-alertContent {
+		max-width: 380px;
+		width: 100%;
+		margin: 0 auto;
+		padding: 70px 10px 40px;
+		background: #fff;
+		border-radius: 10px;
+		box-shadow: 0 11px 18px 0 rgba(0, 0, 0, 0.15);
+		p {
+			font-size: 18px;
+			font-weight: bold;
+			text-align: center;
+			color: #272b41;
+			padding: 20px 30px 30px;
+		}
+		.btn {
+			display: inline-block;
+			padding: 0 80px;
+			color: #fff;
+			font-size: 15px;
+			font-weight: 300;
+			width: 90%;
+			height: 45px;
+			border: none;
+			border-radius: 12px;
+			cursor: pointer;
+		}
+		.btn-alert-success,
+		.btn-alert-kyc-pending {
+			background: #00be00;
+		}
+		.btn-alert-error {
+			background: #ff4545;
+		}
+		.btn-alert-warning {
+			background: #a75b1c;
+		}
+	}
 }

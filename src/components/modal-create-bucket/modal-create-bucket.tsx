@@ -3,8 +3,11 @@ import {Button, Col, Container, Form, Modal, Row} from 'react-bootstrap';
 import addTask from '../../store/mutators/mutator-create-Task.mutator';
 import {storeType1} from '../../store/store/store-task.store';
 import createBucket from '../../store/orchestrators/orchestrator-create-Bucket.orchestrators';
-import createBucketAction from '../../store/actions/action-create-Buckets';
+import createBucketAction, { createBucket1 } from '../../store/actions/action-create-Buckets';
 import {IpropsModalCreateBucket} from './modal-create-bucket.type';
+import createBuckets from '../../store/actions/action-create-Buckets'
+import {dispatch} from 'satcheljs'
+
 function ModalCreateBucket({show, onHide}: IpropsModalCreateBucket) {
 	const [taskValue, SettaskValue] = useState<{title: string}>({
 		title: '',
@@ -19,8 +22,9 @@ function ModalCreateBucket({show, onHide}: IpropsModalCreateBucket) {
 			title: taskValue.title,
 		};
 		//	addTask(obj);
-		//createBucketAction(taskValue.title);
-		createBucket(taskValue);
+	createBucketAction(taskValue.title)
+		// createBuckets(taskValue.title)
+		// createBucket(taskValue);
 		setTimeout(() => onHide(), 200);
 	};
 	return (
@@ -34,7 +38,7 @@ function ModalCreateBucket({show, onHide}: IpropsModalCreateBucket) {
 						<Form.Group className="mb-3">
 							<Row>
 								<Col sm={3}>
-									<Form.Label>Title Task</Form.Label>
+									<Form.Label>Title Bucket</Form.Label>
 								</Col>
 								<Col sm={9}>
 									<Form.Control

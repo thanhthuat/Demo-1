@@ -8,7 +8,7 @@ import {observer, useObserver} from 'mobx-react';
 import {ModalCreate} from '../modal-create-task';
 import updateStore from '../../store/mutators/mutator-updateStore.mutator';
 import getLoacalStoreOrchestrator from '../../store/orchestrators/orchestrator-get-LocalStore.orchestrators';
-
+import ToastCreate from '../Toast/Toast';
 
 const removeFromList = (list: any[], index: number) => {
 	const result = Array.from(list);
@@ -22,10 +22,10 @@ const addToList = (list: any[], index: number, element: any[]) => {
 	return result;
 };
 
-
 const LayoutContainer = observer(() => {
 	const [show, setShow] = useState<boolean>(false);
 	const [type, setType] = useState<string>('create');
+	
 
 	console.log('🚀 ~ file: LayoutContainer.tsx:40 ~ onDragEnd ~ getStore----------', getStoreTask());
 	const onDragEnd = (result: any) => {
@@ -44,39 +44,39 @@ const LayoutContainer = observer(() => {
 		// 	removedElement
 		// );
 		if (!result.destination) return;
-    const { source, destination } = result;
-	const columns:any =  getStoreTask()
-    if (source.droppableId !== destination.droppableId) {
-      const sourceColumn = columns[source.droppableId];
-      const destColumn = columns[destination.droppableId];
-      const sourceItems = [...sourceColumn.items];
-      const destItems = [...destColumn.items];
-      const [removed] = sourceItems.splice(source.index, 1);
-      destItems.splice(destination.index, 0, removed);
-      updateStore({
-        ...columns,
-        [source.droppableId]: {
-          ...sourceColumn,
-          items: sourceItems,
-        },
-        [destination.droppableId]: {
-          ...destColumn,
-          items: destItems,
-        },
-      });
-    } else {
-      const column = columns[source.droppableId];
-      const copiedItems = [...column.items];
-      const [removed] = copiedItems.splice(source.index, 1);
-      copiedItems.splice(destination.index, 0, removed);
-      updateStore({
-        ...columns,
-        [source.droppableId]: {
-          ...column,
-          items: copiedItems,
-        },
-      });
-    }
+		const {source, destination} = result;
+		const columns: any = getStoreTask();
+		if (source.droppableId !== destination.droppableId) {
+			const sourceColumn = columns[source.droppableId];
+			const destColumn = columns[destination.droppableId];
+			const sourceItems = [...sourceColumn.items];
+			const destItems = [...destColumn.items];
+			const [removed] = sourceItems.splice(source.index, 1);
+			destItems.splice(destination.index, 0, removed);
+			updateStore({
+				...columns,
+				[source.droppableId]: {
+					...sourceColumn,
+					items: sourceItems,
+				},
+				[destination.droppableId]: {
+					...destColumn,
+					items: destItems,
+				},
+			});
+		} else {
+			const column = columns[source.droppableId];
+			const copiedItems = [...column.items];
+			const [removed] = copiedItems.splice(source.index, 1);
+			copiedItems.splice(destination.index, 0, removed);
+			updateStore({
+				...columns,
+				[source.droppableId]: {
+					...column,
+					items: copiedItems,
+				},
+			});
+		}
 
 		//updateStore(listCopy);
 		//	setElements(listCopy);
@@ -86,31 +86,34 @@ const LayoutContainer = observer(() => {
 		setShow(true);
 	};
 	const handleCloseModal = () => setShow(false);
-
+	
 	useEffect(() => {
 		// let obj: any = {
 
 		// };
 		// // const formatData = JSON.parse(obj)
 		// localStorage.setItem('storeTask',  JSON.stringify(obj));
-		 getLoacalStoreOrchestrator({text: ''});
+		getLoacalStoreOrchestrator({text: ''});
 	}, []);
-	return (
-		<div className="layout-container">
-			<DragDropContext onDragEnd={onDragEnd}>
-				{Object.keys(getStoreTask()).map((listKey: string) => (
-					<Card
-						elements={getStoreTask()[`${listKey}`].items as any}
-						key={listKey}
-						prefix={listKey}
-						type={listKey}
-						showMoal={handleShowModal}
-					/>
-				))}
-			</DragDropContext>
 
-			{show && <ModalCreate show={show} onHide={handleCloseModal} type={type} />}
-		</div>
+	return (
+		
+			<div className="layout-container">
+				<DragDropContext onDragEnd={onDragEnd}>
+					{Object.keys(getStoreTask()).map((listKey: string) => (
+						<Card
+							elements={getStoreTask()[`${listKey}`].items as any}
+							key={listKey}
+							prefix={listKey}
+							type={listKey}
+							showMoal={handleShowModal}
+						/>
+					))}
+				</DragDropContext>
+
+				{show && <ModalCreate show={show} onHide={handleCloseModal} type={type} />}
+			</div>
+		
 	);
 });
 
