@@ -15,5 +15,6 @@ export const initialData = {
 
 let getStore = createStore <Istore>("todoStore", initialData);
 
+let getStore2 = createStore <any>("todoStore2", {loading:true,data:[ ,{titel:'đ'}]});
 export default getStore;
  

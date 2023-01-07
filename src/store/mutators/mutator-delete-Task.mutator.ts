@@ -1,9 +1,9 @@
 import { mutatorAction } from "satcheljs";
 import { getStoreTask } from "../Selectors/selector-get-Store.selector";
-import getStore, { storeType1 } from "../store/store-task.store";
+import getStore from "../store/store-task.store";
 
 const deleteTodo = mutatorAction("DELETE_TODO", function deleteTodo (
-  index: number,type :  keyof storeType1
+  index: number,type : string
 ) {
     
    getStore().store[`${type}`].items.splice(index, 1);

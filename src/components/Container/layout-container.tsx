@@ -2,13 +2,14 @@ import React, {useEffect, useState} from 'react';
 import {toJS} from 'mobx';
 import {DragDropContext} from 'react-beautiful-dnd';
 import {Card} from '../Card';
-import getStore, {storeType1} from '../../store/store/store-task.store';
+import getStore from '../../store/store/store-task.store';
 import {getStoreTask} from '../../store/Selectors/selector-get-Store.selector';
 import {observer, useObserver} from 'mobx-react';
 import {ModalCreate} from '../modal-create-task';
 import updateStore from '../../store/mutators/mutator-updateStore.mutator';
 import getLoacalStoreOrchestrator from '../../store/orchestrators/orchestrator-get-LocalStore.orchestrators';
 import ToastCreate from '../Toast/Toast';
+import { getRootStore } from 'satcheljs';
 
 const removeFromList = (list: any[], index: number) => {
 	const result = Array.from(list);
@@ -26,8 +27,6 @@ const LayoutContainer = observer(() => {
 	const [show, setShow] = useState<boolean>(false);
 	const [type, setType] = useState<string>('create');
 	
-
-	console.log('🚀 ~ file: LayoutContainer.tsx:40 ~ onDragEnd ~ getStore----------', getStoreTask());
 	const onDragEnd = (result: any) => {
 		// if (!result.destination) {
 		// 	return;
