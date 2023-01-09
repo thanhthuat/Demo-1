@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {Button, Col, Container, Form, Modal, Row} from 'react-bootstrap';
-import addTask from '../../store/mutators/mutator-create-Task.mutator';
+import addTask from '../../store/mutator-actions/create-task.mutator';
 
 import {Tprops} from './modal-create-task.type';
 function ModalCreate({show, onHide, type}: Tprops) {

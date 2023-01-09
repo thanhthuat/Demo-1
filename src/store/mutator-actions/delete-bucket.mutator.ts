@@ -1,8 +1,8 @@
 import { mutatorAction ,mutator } from "satcheljs";
-import { getStoreTask } from "../Selectors/selector-get-Store.selector";
+import { getStoreTask } from "../selectors/get-store.selector";
 import getStore  from "../store/store-task.store";
 import {IlocalStore} from "../store/store-task.type";
-import {deleteBucketAction} from '../actions/action-delete-Bucket';
+import {deleteBucketAction} from '../actions/delete-bucket.action';
 
 
 

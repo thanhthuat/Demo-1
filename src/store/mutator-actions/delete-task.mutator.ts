@@ -1,5 +1,5 @@
 import { mutatorAction } from "satcheljs";
-import { getStoreTask } from "../Selectors/selector-get-Store.selector";
+import { getStoreTask } from "../selectors/get-store.selector";
 import getStore from "../store/store-task.store";
 
 const deleteTodo = mutatorAction("DELETE_TODO", function deleteTodo (

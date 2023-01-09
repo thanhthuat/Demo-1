@@ -1,6 +1,7 @@
 import React ,{useState}from 'react';
 import { getStore } from '../../store/store';
 import { ModalCreateBucket} from '../modal-create-bucket';
+import './header.scss';
 
 
 const classNamePrefix = 'nav-header';

@@ -1,10 +1,11 @@
 import React, {useState} from 'react';
 import {Droppable} from 'react-beautiful-dnd';
 import {Item} from '../Item';
-import editBucket from '../../store/mutators/mutator-edit-Bucket.mutator';
-import {Iobj, Props} from './Card.type';
-import handleDeleteBucket from '../../store/orchestrators/orchestrator-delete-Bucket.orchestrators';
-import deleteBucket from '../../store/actions/action-delete-Bucket';
+import editBucket from '../../store/mutator-actions/edit-bucket.mutator';
+import {Iobj, Props} from './card.type';
+import './card.scss';
+import handleDeleteBucket from '../../store/orchestrators/delete-bucket.orchestrators';
+import deleteBucket from '../../store/actions/delete-bucket.action';
 const classNamePrefix = 'card';
 function Card({showMoal, prefix, elements, type}: Props) {
 	const [editNameBucket, setEditNameBucket] = useState<boolean>(false);
@@ -25,7 +26,7 @@ function Card({showMoal, prefix, elements, type}: Props) {
 		setEditNameBucket(false);
 	};
 	const handleDelete = () => {
-		deleteBucket( type)
+		deleteBucket(type);
 		//handleDeleteBucket({title: type});
 	};
 	//handleDeleteBucket
@@ -44,7 +45,6 @@ function Card({showMoal, prefix, elements, type}: Props) {
 							onChange={handleChangeName}
 						></input>
 						<button className={`${classNamePrefix}__buttonsave`} onClick={handleSave}>
-							{' '}
 							Save
 						</button>
 					</>

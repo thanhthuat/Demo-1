@@ -1,15 +1,16 @@
 import React, {useEffect, useState} from 'react';
 import {toJS} from 'mobx';
 import {DragDropContext} from 'react-beautiful-dnd';
-import {Card} from '../Card';
+import {Card} from '../card';
 import getStore from '../../store/store/store-task.store';
-import {getStoreTask} from '../../store/Selectors/selector-get-Store.selector';
+import {getStoreTask} from '../../store/selectors/get-store.selector';
 import {observer, useObserver} from 'mobx-react';
 import {ModalCreate} from '../modal-create-task';
-import updateStore from '../../store/mutators/mutator-updateStore.mutator';
-import getLoacalStoreOrchestrator from '../../store/orchestrators/orchestrator-get-LocalStore.orchestrators';
-import ToastCreate from '../Toast/Toast';
-import { getRootStore } from 'satcheljs';
+import updateStore from '../../store/mutator-actions/update-store.mutator';
+import getLoacalStoreOrchestrator from '../../store/orchestrators/get-localstore.orchestrators';
+import './layout-container.scss';
+
+import {getRootStore} from 'satcheljs';
 
 const removeFromList = (list: any[], index: number) => {
 	const result = Array.from(list);
@@ -26,7 +27,7 @@ const addToList = (list: any[], index: number, element: any[]) => {
 const LayoutContainer = observer(() => {
 	const [show, setShow] = useState<boolean>(false);
 	const [type, setType] = useState<string>('create');
-	
+
 	const onDragEnd = (result: any) => {
 		// if (!result.destination) {
 		// 	return;
@@ -85,7 +86,7 @@ const LayoutContainer = observer(() => {
 		setShow(true);
 	};
 	const handleCloseModal = () => setShow(false);
-	
+
 	useEffect(() => {
 		// let obj: any = {
 
@@ -96,23 +97,21 @@ const LayoutContainer = observer(() => {
 	}, []);
 
 	return (
-		
-			<div className="layout-container">
-				<DragDropContext onDragEnd={onDragEnd}>
-					{Object.keys(getStoreTask()).map((listKey: string) => (
-						<Card
-							elements={getStoreTask()[`${listKey}`].items as any}
-							key={listKey}
-							prefix={listKey}
-							type={listKey}
-							showMoal={handleShowModal}
-						/>
-					))}
-				</DragDropContext>
+		<div className="layout-container">
+			<DragDropContext onDragEnd={onDragEnd}>
+				{Object.keys(getStoreTask()).map((listKey: string) => (
+					<Card
+						elements={getStoreTask()[`${listKey}`].items as any}
+						key={listKey}
+						prefix={listKey}
+						type={listKey}
+						showMoal={handleShowModal}
+					/>
+				))}
+			</DragDropContext>
 
-				{show && <ModalCreate show={show} onHide={handleCloseModal} type={type} />}
-			</div>
-		
+			{show && <ModalCreate show={show} onHide={handleCloseModal} type={type} />}
+		</div>
 	);
 });
 

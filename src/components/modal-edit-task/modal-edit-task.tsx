@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import {Button, Col, Container, Form, Modal, Row} from 'react-bootstrap';
-import addTask from '../../store/mutators/mutator-create-Task.mutator';
-import editTask from '../../store/mutators/mutator-edit-Task.mutator';
-import {IpropsModalEditTask} from './modal-edit-task.type'
+import addTask from '../../store/mutator-actions/create-task.mutator';
+import editTask from '../../store/mutator-actions/edit-task.mutator';
+import {IpropsModalEditTask} from './modal-edit-task.type';
 function ModalEdit({show, onHide, type, item, index}: IpropsModalEditTask) {
 	const [taskValue, SettaskValue] = useState<{title: string; content: string}>({
 		title: item.content,

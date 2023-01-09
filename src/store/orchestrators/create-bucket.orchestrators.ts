@@ -1,6 +1,6 @@
 import { orchestrator } from "satcheljs";
-import { apiCreateBucket } from "../../api/api-create-Bucket";
-import createBuckets, { createBucket1 } from "../actions/action-create-Buckets";
+import { apiCreateBucket } from "../../api/api-bucket";
+import createBuckets, { createBucket1 } from "../actions/create-buckets.action";
 
 
 const createBucket = orchestrator(createBuckets, async (actionMessage) => {

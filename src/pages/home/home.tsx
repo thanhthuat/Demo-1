@@ -1,18 +1,18 @@
-import React from 'react'
-import { LayoutContainer } from '../../components/Container'
-import { Header } from '../../components/Header'
-
-
+import React from 'react';
+import {LayoutContainer} from '../../components/container';
+import AppTest from '../../components/demo/TestDnd';
+import {Header} from '../../components/header';
 
 function Home() {
-  return (
-    <>
+	return (
+		<>
 			<Header />
 			<div className="wapper mt-3">
+				{/* <AppTest/> */}
 				<LayoutContainer />
 			</div>
 		</>
-  )
+	);
 }
 
-export default Home
+export default Home;

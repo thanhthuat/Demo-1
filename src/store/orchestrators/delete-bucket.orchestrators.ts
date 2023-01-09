@@ -1,7 +1,7 @@
 
 import { orchestrator } from "satcheljs";
-import { apiDeleteBucket } from "../../api/api-create-Bucket";
-import deleteBucket ,{deleteBucketAction} from "../actions/action-delete-Bucket";
+import { apiDeleteBucket } from "../../api/api-bucket";
+import deleteBucket ,{deleteBucketAction} from "../actions/delete-bucket.action";
 
 
 const handleDeleteBucket = orchestrator(deleteBucket, async (actionMessage) => {

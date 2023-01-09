@@ -1,10 +1,10 @@
 import { createStore } from "satcheljs"; 
 import {Itask,Istore} from './store-task.type';
-import '../orchestrators/orchestrator-create-Bucket.orchestrators';
-import '../orchestrators/orchestrator-delete-Bucket.orchestrators';
-import '../orchestrators/orchestrator-get-LocalStore.orchestrators';
-import '../mutators/mutator-create-Bucket.mutator';
-import '../mutators/mutator-delete-Bucket.mutator';
+import '../orchestrators/create-bucket.orchestrators';
+import '../orchestrators/delete-bucket.orchestrators';
+import '../orchestrators/get-localstore.orchestrators';
+import '../mutator-actions/create-bucket.mutator';
+import '../mutator-actions/delete-bucket.mutator';
 
 
 export const initialData = {
@@ -14,7 +14,5 @@ export const initialData = {
   };
 
 let getStore = createStore <Istore>("todoStore", initialData);
-
-let getStore2 = createStore <any>("todoStore2", {loading:true,data:[ ,{titel:'đ'}]});
 export default getStore;
  

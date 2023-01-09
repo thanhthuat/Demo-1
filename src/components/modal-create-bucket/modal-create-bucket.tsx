@@ -1,12 +1,12 @@
 import React, {useState} from 'react';
 import {Button, Col, Container, Form, Modal, Row} from 'react-bootstrap';
-import addTask from '../../store/mutators/mutator-create-Task.mutator';
+import addTask from '../../store/mutator-actions/create-task.mutator';
 
-import createBucket from '../../store/orchestrators/orchestrator-create-Bucket.orchestrators';
-import createBucketAction, { createBucket1 } from '../../store/actions/action-create-Buckets';
+import createBucket from '../../store/orchestrators/create-bucket.orchestrators';
+import createBucketAction, {createBucket1} from '../../store/actions/create-buckets.action';
 import {IpropsModalCreateBucket} from './modal-create-bucket.type';
-import createBuckets from '../../store/actions/action-create-Buckets'
-import {dispatch} from 'satcheljs'
+import createBuckets from '../../store/actions/create-buckets.action';
+import {dispatch} from 'satcheljs';
 
 function ModalCreateBucket({show, onHide}: IpropsModalCreateBucket) {
 	const [taskValue, SettaskValue] = useState<{title: string}>({
@@ -22,7 +22,7 @@ function ModalCreateBucket({show, onHide}: IpropsModalCreateBucket) {
 			title: taskValue.title,
 		};
 		//	addTask(obj);
-	createBucketAction(taskValue.title)
+		createBucketAction(taskValue.title);
 		// createBuckets(taskValue.title)
 		// createBucket(taskValue);
 		setTimeout(() => onHide(), 200);

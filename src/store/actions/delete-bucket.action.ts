@@ -1,4 +1,4 @@
-import { IlocalStore } from './../store/store-task.type';
+import { IlocalStore } from '../store/store-task.type';
 import { action } from "satcheljs";
 
 let deleteBucket = action("DELETE_BUCKET", (text: string) => ({ title: text }));
