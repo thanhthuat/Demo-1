@@ -1,11 +1,11 @@
 .card {
 	min-width: 414px;
 	height: auto;
-	background-color: $white-main;
+	background-color: #fffeff;
 	border-radius: 3px;
 
 	&__head {
-		color: $blue-main;
+		color: #4783f3;
 		display: flex;
 		justify-content: space-between;
 		padding: 10px 22px;
@@ -16,17 +16,17 @@
 	&__itemhead {
 		font-size: 14px;
 	}
-	&__edit.card__itemhead{
+	&__edit.card__itemhead {
 		border: none;
 		outline: none;
 		text-align: left !important;
 		padding: 0px 10px;
 	}
-	&__buttonsave{
+	&__buttonsave {
 		border: none;
-		background-color: $blue-main;
+		background-color: #4783f3;
 		border-radius: 4px;
-		color: $white-main;
+		color: #fffeff;
 		padding: 4px 5px;
 		margin-right: 10px;
 	}
@@ -42,7 +42,7 @@
 		height: 90vh;
 		min-width: 286px;
 	}
-	.ml-4{
+	.ml-4 {
 		margin-left: 15px;
 	}
 }

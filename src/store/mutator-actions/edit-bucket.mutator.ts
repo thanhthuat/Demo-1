@@ -8,7 +8,7 @@ interface obj {
   newtitle:string,
  
 }
-const editBucket = mutatorAction("EDIT__BUCKET", function editBucket(obj: obj) {
+export const editBucket = mutatorAction("EDIT__BUCKET", function editBucket(obj: obj) {
    if(obj.newtitle !== obj.oldtitile){
     getStore().store[`${obj.newtitle}`] =getStore().store[`${obj.oldtitile}`] ;
     delete getStore().store[`${obj.oldtitile}`]
@@ -19,4 +19,3 @@ const editBucket = mutatorAction("EDIT__BUCKET", function editBucket(obj: obj) {
   });
 
 
-export default editBucket;

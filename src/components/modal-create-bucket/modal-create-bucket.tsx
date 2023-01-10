@@ -2,10 +2,10 @@ import React, {useState} from 'react';
 import {Button, Col, Container, Form, Modal, Row} from 'react-bootstrap';
 import addTask from '../../store/mutator-actions/create-task.mutator';
 
-import createBucket from '../../store/orchestrators/create-bucket.orchestrators';
-import createBucketAction, {createBucket1} from '../../store/actions/create-buckets.action';
+
+import  {storeBoard} from '../../store';
 import {IpropsModalCreateBucket} from './modal-create-bucket.type';
-import createBuckets from '../../store/actions/create-buckets.action';
+
 import {dispatch} from 'satcheljs';
 
 function ModalCreateBucket({show, onHide}: IpropsModalCreateBucket) {
@@ -21,10 +21,7 @@ function ModalCreateBucket({show, onHide}: IpropsModalCreateBucket) {
 		let obj = {
 			title: taskValue.title,
 		};
-		//	addTask(obj);
-		createBucketAction(taskValue.title);
-		// createBuckets(taskValue.title)
-		// createBucket(taskValue);
+		storeBoard.actions.createBucketAction(taskValue.title);
 		setTimeout(() => onHide(), 200);
 	};
 	return (

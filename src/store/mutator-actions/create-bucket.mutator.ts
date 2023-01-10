@@ -1,4 +1,4 @@
-import { Istore } from '../../api/api-bucket/api-create-bucket.type';
+import { Istore } from '../../api/api-bucket/api-bucket.type';
 import { mutatorAction ,mutator} from "satcheljs";
 import getStore  from "../store/store-task.store";
 import {IlocalStore} from "../store/store-task.type";

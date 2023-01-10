@@ -6,11 +6,11 @@ import getStore from '../../store/store/store-task.store';
 import {getStoreTask} from '../../store/selectors/get-store.selector';
 import {observer, useObserver} from 'mobx-react';
 import {ModalCreate} from '../modal-create-task';
-import updateStore from '../../store/mutator-actions/update-store.mutator';
+
 import getLoacalStoreOrchestrator from '../../store/orchestrators/get-localstore.orchestrators';
 import './layout-container.scss';
 
-import {getRootStore} from 'satcheljs';
+import {updateStore} from '../../store/mutator-actions';
 
 const removeFromList = (list: any[], index: number) => {
 	const result = Array.from(list);
@@ -53,6 +53,18 @@ const LayoutContainer = observer(() => {
 			const destItems = [...destColumn.items];
 			const [removed] = sourceItems.splice(source.index, 1);
 			destItems.splice(destination.index, 0, removed);
+
+			// updateStore({
+			// 	...columns,
+			// 	[source.droppableId]: {
+			// 		...sourceColumn,
+			// 		items: sourceItems,
+			// 	},
+			// 	[destination.droppableId]: {
+			// 		...destColumn,
+			// 		items: destItems,
+			// 	},
+			// });
 			updateStore({
 				...columns,
 				[source.droppableId]: {
@@ -69,6 +81,13 @@ const LayoutContainer = observer(() => {
 			const copiedItems = [...column.items];
 			const [removed] = copiedItems.splice(source.index, 1);
 			copiedItems.splice(destination.index, 0, removed);
+			// updateStore({
+			// 	...columns,
+			// 	[source.droppableId]: {
+			// 		...column,
+			// 		items: copiedItems,
+			// 	},
+			// });
 			updateStore({
 				...columns,
 				[source.droppableId]: {

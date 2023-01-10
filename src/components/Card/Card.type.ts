@@ -9,7 +9,7 @@ export interface Iobj {
 	newtitle:string,
    
   }
-export type Props = {
+export type Tprops = {
 	showMoal: (value: string) => void;
 	prefix: number | string;
 	elements: Ielement[];

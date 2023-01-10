@@ -1,13 +1,14 @@
 import React, {useState} from 'react';
 import {Droppable} from 'react-beautiful-dnd';
-import {Item} from '../Item';
-import editBucket from '../../store/mutator-actions/edit-bucket.mutator';
-import {Iobj, Props} from './card.type';
+import {Item} from '../item';
+
+import {editBucket} from '../../store/mutator-actions'
+import {Iobj, Tprops} from './card.type';
 import './card.scss';
-import handleDeleteBucket from '../../store/orchestrators/delete-bucket.orchestrators';
-import deleteBucket from '../../store/actions/delete-bucket.action';
+// import deleteBucket from '../../store/actions/delete-bucket.action';
+import  {storeBoard} from '../../store';
 const classNamePrefix = 'card';
-function Card({showMoal, prefix, elements, type}: Props) {
+function Card({showMoal, prefix, elements, type}: Tprops) {
 	const [editNameBucket, setEditNameBucket] = useState<boolean>(false);
 	const [valueNameBucket, setValueNameBucket] = useState<string>(type);
 
@@ -26,7 +27,7 @@ function Card({showMoal, prefix, elements, type}: Props) {
 		setEditNameBucket(false);
 	};
 	const handleDelete = () => {
-		deleteBucket(type);
+		storeBoard.actions.deleteBucket(type);
 		//handleDeleteBucket({title: type});
 	};
 	//handleDeleteBucket

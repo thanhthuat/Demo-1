@@ -1,0 +1,1 @@
+export * as storeBoard from './export';

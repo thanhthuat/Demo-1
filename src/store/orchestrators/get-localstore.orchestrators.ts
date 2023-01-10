@@ -1,6 +1,6 @@
 import { orchestrator } from "satcheljs";
 import { apiGetBucket } from "../../api/api-bucket";
-import getBucketStore from "../actions/get-localstore.action";
+import {getBucketStore} from "../actions";
 import getLocalStore from "../mutator-actions/get-localstore.mutator";
 
 const getLoacalStoreOrchestrator = orchestrator(getBucketStore, async (actionMessage) => {
